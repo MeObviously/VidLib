@@ -98,6 +98,8 @@
     </Content>
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\st_george_custom.css" />
+    <Content Include="footer.html" />
+    <Content Include="header.html" />
     <Content Include="index.aspx" />
     <Content Include="sql\dbo.tblBookings.sql" />
     <Content Include="sql\dbo.tblBookings_insert.sql" />
