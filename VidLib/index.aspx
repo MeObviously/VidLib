@@ -37,7 +37,7 @@
 				
 		    <!-- Logo goes here -->
 			
-		    <h1> Nnme of Restaurant</h1>
+		    <h1>St George's Restaurant</h1>
 	    </div> <!-- End of navbar-header -->
 	
 	    <div class="container">  <!-- Top links start here -->
