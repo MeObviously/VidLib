@@ -96,11 +96,21 @@
     <Content Include="App_Data\dbVideoLibrary_log.ldf">
       <DependentUpon>dbVideoLibrary.mdf</DependentUpon>
     </Content>
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\st_george_custom.css" />
+    <Content Include="index.aspx" />
     <Content Include="sql\dbo.tblBookings.sql" />
     <Content Include="sql\dbo.tblBookings_insert.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="index.aspx.designer.vb">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.vb">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -146,6 +156,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
