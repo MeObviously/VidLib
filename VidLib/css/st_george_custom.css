@@ -22,6 +22,30 @@
   /* medium blue */ 
 }
 
+.navbar.navbar-default {
+    background-color: #010C22;
+}
+
+.navbar.navbar-default > .navbar-header > h1 {
+    color: white;
+    padding-left: 25px;
+}
+
+.navbar-default .navbar-nav > li > a:link {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: lawngreen;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a:visited {
+    color: #616161;
+    font-weight: bold;
+}
+
 #pnlBookingForm {
      padding-left: 10px;
      padding-top: 10px;
