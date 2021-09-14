@@ -41,6 +41,24 @@ Partial Public Class index
     Protected WithEvents txtName As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''rfvName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvName As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revName As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtPhone control.
     '''</summary>
     '''<remarks>
@@ -48,6 +66,24 @@ Partial Public Class index
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPhone As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''rfvPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvPhone As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revPhone As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''txtEmail control.
@@ -59,6 +95,24 @@ Partial Public Class index
     Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''rfvEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvEmail As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revEmail As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtGuests control.
     '''</summary>
     '''<remarks>
@@ -66,6 +120,24 @@ Partial Public Class index
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtGuests As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RequiredFieldValidator1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''rgvGuest control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rgvGuest As Global.System.Web.UI.WebControls.RangeValidator
 
     '''<summary>
     '''txtDate control.
@@ -77,6 +149,24 @@ Partial Public Class index
     Protected WithEvents txtDate As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''rfvDate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvDate As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revDate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revDate As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''ddlTime control.
     '''</summary>
     '''<remarks>
@@ -86,6 +176,15 @@ Partial Public Class index
     Protected WithEvents ddlTime As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''rfvTime control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvTime As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''ddlCategory control.
     '''</summary>
     '''<remarks>
@@ -93,6 +192,15 @@ Partial Public Class index
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlCategory As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''rfvCategory control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvCategory As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''Button1 control.
