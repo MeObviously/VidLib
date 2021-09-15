@@ -42,7 +42,7 @@ Public Class index
         ' Insert new record
 
         ' only put partial SQL statement to avoid SQL Injection (security hack risk)
-        Dim strConn As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\dbRestaurantBookings.mdf';Integrated Security=True"
+        Dim strConn As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\dbVideoLibrary.mdf';Integrated Security=True"
         Dim strSQL As String = "INSERT INTO tblBookings "
         strSQL &= "([Name], [Time], [Date], [Seats], [Phone], [Email], [Category])"
         strSQL &= " VALUES "
@@ -72,7 +72,7 @@ Public Class index
             sqlCmd.ExecuteNonQuery()
 
             ' success message for user
-            'MsgBox("Your booking has been accepted. See you soon.",, "St. Georges")
+            MsgBox("Your booking has been accepted. See you soon.",, "St. Georges")
             ' additional visual cue to user that things have worked successfully
             Call ClearForm()
 
