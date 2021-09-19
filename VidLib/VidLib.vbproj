@@ -101,11 +101,14 @@
     <Content Include="footer.html" />
     <Content Include="header.html" />
     <Content Include="index.aspx" />
+    <Content Include="results.aspx" />
     <Content Include="sql\dbo.tblBookings.sql" />
     <Content Include="sql\dbo.tblBookings_insert.sql" />
+    <Content Include="success.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Globals.vb" />
     <Compile Include="index.aspx.designer.vb">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
@@ -131,6 +134,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="results.aspx.designer.vb">
+      <DependentUpon>results.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="results.aspx.vb">
+      <DependentUpon>results.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="success.aspx.designer.vb">
+      <DependentUpon>success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="success.aspx.vb">
+      <DependentUpon>success.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

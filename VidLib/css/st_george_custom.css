@@ -59,4 +59,64 @@ body {
      color: red;
  }
 
+.footer {
+    grid-area: footer;
+    text-align: right
+}
 
+/* Results table styling */
+table.results {
+    text-align: left;
+    border: 3px solid black;
+    /* cell border and table borders merge not separate as per std HTML */
+    border-collapse: collapse;
+}
+
+tr.results {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    height: 24px;
+}
+
+
+th.results {
+    /* header slightly thicker than table rows */
+    height: 36px;
+    vertical-align: middle;
+    /* margin:auto;  horizontally centre */
+    padding: 10px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    background-color: #010C22;
+    color: #ffffff; /* white */
+}
+
+/* to improve visibility alternate colour schemes for table rows */
+tr.results:nth-child(even) {
+    background-color: rgb(128, 128, 230); /* match body background */
+}
+
+tr.results:nth-child(odd) {
+    background-color: #ffffff; /* white */
+}
+
+td.results { /* consistent with table header */
+    vertical-align: middle;
+    /* margin: auto; horizontally centre */
+    padding: 10px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+/*  emphasis on div styling */
+div.one {
+    background-color: rgb(128, 128, 230); /* match body background & even results */
+    border: 1px solid #010C22; /* same as results */
+    padding-top: 15px;
+}
+
+div.two {
+    background-color: #ffffff; /* white - match odd results */
+    border: 1px solid #010C22; /* same as results */
+    padding-top: 15px;
+}

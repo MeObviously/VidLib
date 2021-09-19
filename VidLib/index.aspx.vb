@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Configuration
 Public Class index
     Inherits System.Web.UI.Page
 
@@ -37,12 +38,12 @@ Public Class index
         ' setup to parse user input into a date that the database will accept
         Dim provider As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture
         Dim dteNewDate As New Date()
+
         dteNewDate = Date.ParseExact(txtDate.Text, "dd/MM/yyyy", provider)
 
         ' Insert new record
 
         ' only put partial SQL statement to avoid SQL Injection (security hack risk)
-        Dim strConn As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\dbVideoLibrary.mdf';Integrated Security=True"
         Dim strSQL As String = "INSERT INTO tblBookings "
         strSQL &= "([Name], [Time], [Date], [Seats], [Phone], [Email], [Category])"
         strSQL &= " VALUES "
@@ -72,7 +73,7 @@ Public Class index
             sqlCmd.ExecuteNonQuery()
 
             ' success message for user
-            MsgBox("Your booking has been accepted. See you soon.",, "St. Georges")
+            ' MsgBox("Your booking has been accepted. See you soon.",, "St. Georges")
             ' additional visual cue to user that things have worked successfully
             Call ClearForm()
 
@@ -87,6 +88,12 @@ Public Class index
             End If
 
         End Try
+
+        ' record ID of newly inserted row so that can use to display in feedback page
+        Call SetSessionID(strName, strTime, dteNewDate, intGuests, strPhone, strEmail, strCategory)
+
+        ' redirect user to feedback page
+        Response.Redirect("success.aspx")
 
     End Sub
 
@@ -106,4 +113,51 @@ Public Class index
         ddlTime.Text = "--Choose--"
 
     End Sub
+
+    Private Sub SetSessionID(strName As String, strTime As String, dteNewDate As Date, intGuests As Integer, strPhone As String, strEmail As String, strCategory As String)
+
+        ' create new sql statement to select Id by matching the other field attributes
+        ' note - no uniqueness checking in database so may match more than one row
+        ' will return first found
+
+        Dim strSQL As String = "SELECT Id FROM tblBookings "
+        strSQL &= "WHERE [Name] = @name "
+        strSQL &= "And [Time] = @time "
+        strSQL &= "And [Date] = @date "
+        strSQL &= "And [Seats] = @seats "
+        strSQL &= "And [Phone] = @phone "
+        strSQL &= "And [Email] = @email "
+        strSQL &= "And [Category] = @category"
+
+        ' Objects for communication with db
+        Dim sqlCmd As New SqlCommand()
+
+        ' complete INSERT query with current form values
+
+        With sqlCmd.Parameters
+            .AddWithValue("@name", strName)
+            .AddWithValue("@time", strTime)
+            .AddWithValue("@date", dteNewDate)
+            .AddWithValue("@seats", intGuests)
+            .AddWithValue("@phone", strPhone)
+            .AddWithValue("@email", strEmail)
+            .AddWithValue("@category", strCategory)
+        End With
+
+        ' needs to happen after parameter expansion
+        sqlCmd.CommandText = strSQL
+
+        ' execute SQL to return required dataset with ID of matching row
+        Dim ds As DataSet = QueryDB(sqlCmd)
+
+        ' check if a row has been returned.
+        If ds.Tables(0).Rows.Count > 0 Then
+            Dim intID As Integer = ds.Tables(0).Rows(0).Item(0)
+
+            ' set Session object
+            Session("BID") = intID
+        End If
+
+    End Sub
+
 End Class
