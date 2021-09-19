@@ -69,7 +69,7 @@ Public Class index
             sqlCmd.ExecuteNonQuery()
 
             ' success message for user
-            MsgBox("Your video has been booked. See you soon.",, "Bob The Video Guy")
+            'MsgBox("Your video has been booked. See you soon.",, "Bob The Video Guy")
 
             ' additional visual cue to user that things have worked successfully
             Call ClearForm()
@@ -90,7 +90,7 @@ Public Class index
         Call SetSessionID(strName, strPhone, strEmail, dteNewRentalDate, intRentalDays, strTitle, strGenre)
 
         ' redirect user to feedback page
-        'Response.Redirect("success.aspx")
+        Response.Redirect("success.aspx")
 
     End Sub
 

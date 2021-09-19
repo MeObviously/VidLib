@@ -7,7 +7,7 @@
                 <h1>Congratulations</h1>
 
                 <p>
-                    You have made a booking. We look forward to seeing you soon.
+                    You have rented one of our videos. We look forward to seeing you soon.
                 </p>
 
                 <asp:PlaceHolder ID="plhDataTable" runat="server"></asp:PlaceHolder>
