@@ -10,7 +10,7 @@
     <div class="container">
         <div class="main">
 
-            <h1>Booking Form</h1>
+            <h1>Rentals</h1>
             <!-- Instructons -->
             <p>Fields marked with an <sup>*</sup> are required</p>
             <!-- Booking form start -->
@@ -50,56 +50,49 @@
 
                     </p>
 
-                    <!-- Number of guests -->
+                    <!-- Date of rental -->
                     <p>
-                        No. Guests<sup>*</sup> :<asp:TextBox ID="txtGuests" runat="server" Width="50px"></asp:TextBox>
-                        <!-- enforce mandatory field entry -->
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtGuests" Display="Dynamic" ErrorMessage="Error">The number of guests must be specified.</asp:RequiredFieldValidator>
-                        <!-- enforce only 1-50 guests allowed -->
-                        <asp:RangeValidator ID="rgvGuest" runat="server" ControlToValidate="txtGuests" ErrorMessage="RangeValidator" MaximumValue="50" MinimumValue="1">Maximum 50 guests allowed.</asp:RangeValidator>
-                    </p>
-
-                    <!-- Date of booking -->
-                    <p>
-                        Date(dd/mm/yyyy)<sup>*</sup>:<br />
-                        <asp:TextBox ID="txtDate" runat="server" Width="135px"></asp:TextBox>
+                        Rental Date (dd/mm/yyyy)<sup>*</sup>:<br />
+                        <asp:TextBox ID="txtRentalDate" runat="server" Width="135px"></asp:TextBox>
                          <!-- enforce mandatory field entry -->
-                        <asp:RequiredFieldValidator ID="rfvDate" runat="server" ControlToValidate="txtDate" Display="Dynamic" ErrorMessage="Error">A booking date is required.</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvRentalDate" runat="server" ControlToValidate="txtRentalDate" Display="Dynamic" ErrorMessage="Error">A rental date is required.</asp:RequiredFieldValidator>
                         <!-- enforce correct date format -->
-                        <asp:RegularExpressionValidator ID="revDate" runat="server" ControlToValidate="txtDate" Display="Dynamic" ErrorMessage="RegularExpressionValidator" ValidationExpression="^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)[0-9][0-9]$">A valid date is required</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="revRentalDate" runat="server" ControlToValidate="txtRentalDate" Display="Dynamic" ErrorMessage="RegularExpressionValidator" ValidationExpression="^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)[0-9][0-9]$">A valid date is required</asp:RegularExpressionValidator>
                     </p>
 
-                    <!-- Time dropdown -->
+                     <!-- Days of rental period -->
                     <p>
-                        Time<sup>*</sup>:
-                        <asp:DropDownList ID="ddlTime" runat="server" Height="25px" ToolTip="Choose a time" Width="92px">
+                        Rental Days<sup>*</sup>:
+                        <asp:DropDownList ID="ddlRentalDays" runat="server" Height="25px" ToolTip="Choose a time" Width="92px">
                             <asp:ListItem Value="--Choose--">--Choose--</asp:ListItem>
-                            <asp:ListItem>17:00</asp:ListItem>
-                            <asp:ListItem>17:30</asp:ListItem>
-                            <asp:ListItem>18:00</asp:ListItem>
-                            <asp:ListItem>18:30</asp:ListItem>
-                            <asp:ListItem>19:00</asp:ListItem>
-                            <asp:ListItem>19:30</asp:ListItem>
-                            <asp:ListItem>20:00</asp:ListItem>
-                            <asp:ListItem>20:30</asp:ListItem>
-                            <asp:ListItem>21:00</asp:ListItem>
-                            <asp:ListItem>21:30</asp:ListItem>
-                            <asp:ListItem>22:00</asp:ListItem>
+                            <asp:ListItem>1</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>14</asp:ListItem>
                         </asp:DropDownList>
-                         <asp:RequiredFieldValidator ID="rfvTime" runat="server" InitialValue="--Choose--" ControlToValidate="ddlTime" Display="Dynamic" ErrorMessage="Error">A booking time is required.</asp:RequiredFieldValidator>
+                         <asp:RequiredFieldValidator ID="rfvRentalDays" runat="server" InitialValue="--Choose--" ControlToValidate="ddlRentalDays" Display="Dynamic" ErrorMessage="Error">A rental period must be specified.</asp:RequiredFieldValidator>
                     </p>
-
-                    <!-- Type of customer dropdown -->
+                  
+                   
+                    <!-- Video genre dropdown -->
 
                     <p>
-                        Type:
-                        <asp:DropDownList ID="ddlCategory" runat="server" Height="25px" ToolTip="Choose a customer type" Width="95px">
+                        Genre:
+                        <asp:DropDownList ID="ddlGenre" runat="server" Height="25px" ToolTip="Choose a genre" Width="95px">
                             <asp:ListItem Value="--Choose--">--Choose--</asp:ListItem>
-                            <asp:ListItem>VIP</asp:ListItem>
-                            <asp:ListItem>Regular</asp:ListItem>
-                            <asp:ListItem>Casual</asp:ListItem>
+                            <asp:ListItem>Action</asp:ListItem>
+                            <asp:ListItem>Adventure</asp:ListItem>
+                            <asp:ListItem>Animation</asp:ListItem>
+                            <asp:ListItem>Comedy</asp:ListItem>
+                            <asp:ListItem>Drama</asp:ListItem>
+                            <asp:ListItem>Family</asp:ListItem>
+                            <asp:ListItem>Horror</asp:ListItem>
+                            <asp:ListItem>Musical</asp:ListItem>
+                            <asp:ListItem>Romance</asp:ListItem>
+                            <asp:ListItem>Sci-Fi</asp:ListItem>
+                            <asp:ListItem>War</asp:ListItem>
                         </asp:DropDownList>
-                         <asp:RequiredFieldValidator ID="rfvCategory" runat="server" InitialValue="--Choose--" ControlToValidate="ddlCategory" Display="Dynamic" ErrorMessage="Error">Client category is required.</asp:RequiredFieldValidator>
+                         <asp:RequiredFieldValidator ID="rfvGenre" runat="server" InitialValue="--Choose--" ControlToValidate="ddlGenre" Display="Dynamic" ErrorMessage="Error">Video genre is required.</asp:RequiredFieldValidator>
                     </p>
 
                     <!-- <asp:Button ID="Button1" runat="server" CausesValidation="true" Text="Submit" Width="70px" /> -->

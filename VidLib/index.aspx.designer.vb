@@ -113,94 +113,67 @@ Partial Public Class index
     Protected WithEvents revEmail As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''txtGuests control.
+    '''txtRentalDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtGuests As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtRentalDate As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''RequiredFieldValidator1 control.
+    '''rfvRentalDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvRentalDate As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''rgvGuest control.
+    '''revRentalDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rgvGuest As Global.System.Web.UI.WebControls.RangeValidator
+    Protected WithEvents revRentalDate As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''txtDate control.
+    '''ddlRentalDays control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtDate As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlRentalDays As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''rfvDate control.
+    '''rfvRentalDays control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvDate As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvRentalDays As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''revDate control.
+    '''ddlGenre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents revDate As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents ddlGenre As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''ddlTime control.
+    '''rfvGenre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlTime As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''rfvTime control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfvTime As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''ddlCategory control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlCategory As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''rfvCategory control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfvCategory As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvGenre As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''Button1 control.

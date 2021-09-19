@@ -13,7 +13,8 @@ Public Class index
     ''' <param name="e"></param>
     ''' <see> InsertRecord subroutine </see>
     Protected Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
-        Call InsertRecord()
+        ' Call InsertRecord()
+        MsgBox("Well done!")
     End Sub
 
     ''' <summary>
@@ -23,93 +24,93 @@ Public Class index
     ''' </summary>
     ''' <see>ClearForm subroutine</see>
     ''' 
-    Private Sub InsertRecord()
+    'Private Sub InsertRecord()
 
-        ' Collect data
-        Dim strName As String = txtName.Text
-        Dim strPhone As String = txtPhone.Text
-        Dim strEmail As String = txtEmail.Text
-        Dim intGuests As Integer = txtGuests.Text
-        Dim strCategory As String = ddlCategory.Text
-        Dim strTime As String = ddlTime.Text
+    '    ' Collect data
+    '    Dim strName As String = txtName.Text
+    '    Dim strPhone As String = txtPhone.Text
+    '    Dim strEmail As String = txtEmail.Text
+    '    Dim intGuests As Integer = txtGuests.Text
+    '    Dim strCategory As String = ddlCategory.Text
+    '    Dim strTime As String = ddlTime.Text
 
-        ' date need special handling to get into a format that can be inserted into the database
-        ' setup to parse user input into a date that the database will accept
-        Dim provider As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture
-        Dim dteNewDate As New Date()
+    '    ' date need special handling to get into a format that can be inserted into the database
+    '    ' setup to parse user input into a date that the database will accept
+    '    Dim provider As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture
+    '    Dim dteNewDate As New Date()
 
-        dteNewDate = Date.ParseExact(txtDate.Text, "dd/MM/yyyy", provider)
+    '    dteNewDate = Date.ParseExact(txtDate.Text, "dd/MM/yyyy", provider)
 
-        ' insert new record
+    '    ' insert new record
 
-        ' only put partial SQL statement to avoid SQL Injection (security hack risk)
-        Dim strSQL As String = "INSERT INTO tblBookings ([Name], [Time], [Date], [Seats], [Phone], [Email], [Category]) VALUES ("
-        strSQL &= "@name, @time, @date, @seats, @phone, @email, @category)"
-        Dim sqlCmd As SqlCommand
-        Dim sqlConn As New SqlConnection(strConn)
+    '    ' only put partial SQL statement to avoid SQL Injection (security hack risk)
+    '    Dim strSQL As String = "INSERT INTO tblBookings ([Name], [Time], [Date], [Seats], [Phone], [Email], [Category]) VALUES ("
+    '    strSQL &= "@name, @time, @date, @seats, @phone, @email, @category)"
+    '    Dim sqlCmd As SqlCommand
+    '    Dim sqlConn As New SqlConnection(strConn)
 
-        Try
-            ' Open connection
-            sqlConn.Open()
-            sqlCmd = New SqlCommand(strSQL, sqlConn)
+    '    Try
+    '        ' Open connection
+    '        sqlConn.Open()
+    '        sqlCmd = New SqlCommand(strSQL, sqlConn)
 
-            ' complete INSERT query with current form values
+    '        ' complete INSERT query with current form values
 
-            With sqlCmd.Parameters
-                .AddWithValue("@name", strName)
-                .AddWithValue("@time", strTime)
-                .AddWithValue("@date", dteNewDate)
-                .AddWithValue("@seats", intGuests)
-                .AddWithValue("@phone", strPhone)
-                .AddWithValue("@email", strEmail)
-                .AddWithValue("@category", strCategory)
-            End With
+    '        With sqlCmd.Parameters
+    '            .AddWithValue("@name", strName)
+    '            .AddWithValue("@time", strTime)
+    '            .AddWithValue("@date", dteNewDate)
+    '            .AddWithValue("@seats", intGuests)
+    '            .AddWithValue("@phone", strPhone)
+    '            .AddWithValue("@email", strEmail)
+    '            .AddWithValue("@category", strCategory)
+    '        End With
 
-            ' execute query
-            sqlCmd.ExecuteNonQuery()
+    '        ' execute query
+    '        sqlCmd.ExecuteNonQuery()
 
-            ' success message for user
-            'MsgBox("Your booking has been accepted. See you soon.",, "St. Georges")
+    '        ' success message for user
+    '        'MsgBox("Your booking has been accepted. See you soon.",, "St. Georges")
 
-            ' additional visual cue to user that things have worked successfully
-            Call ClearForm()
+    '        ' additional visual cue to user that things have worked successfully
+    '        Call ClearForm()
 
 
-        Catch ex As Exception
+    '    Catch ex As Exception
 
-            ' Failure message for user
-            MsgBox("An error occurred while processing your request.",, "Processing Error")
+    '        ' Failure message for user
+    '        MsgBox("An error occurred while processing your request.",, "Processing Error")
 
-        Finally
-            ' always close any open connections (regardless of whether exception or not)
-            If sqlConn.State = ConnectionState.Open Then
-                sqlConn.Close()
-            End If
+    '    Finally
+    '        ' always close any open connections (regardless of whether exception or not)
+    '        If sqlConn.State = ConnectionState.Open Then
+    '            sqlConn.Close()
+    '        End If
 
-        End Try
-        Call SetSessionID(strName, strTime, dteNewDate, intGuests, strPhone, strEmail, strCategory)
+    '    End Try
+    '    Call SetSessionID(strName, strTime, dteNewDate, intGuests, strPhone, strEmail, strCategory)
 
-        ' redirect user to feedback page
-        Response.Redirect("success.aspx")
+    '    ' redirect user to feedback page
+    '    Response.Redirect("success.aspx")
 
-    End Sub
+    'End Sub
 
     ''' <summary>
     '''     Resets the booking form by clearing all relevant form objects.
     ''' </summary>
-    Private Sub ClearForm()
+    'Private Sub ClearForm()
 
-        ' Clear relevant form objects
-        txtName.Text = ""
-        txtPhone.Text = ""
-        txtEmail.Text = ""
-        txtGuests.Text = ""
-        txtDate.Text = ""
-        ' to reset for validation purposes
-        ddlCategory.Text = "--Choose--"
-        ddlTime.Text = "--Choose--"
+    '    ' Clear relevant form objects
+    '    txtName.Text = ""
+    '    txtPhone.Text = ""
+    '    txtEmail.Text = ""
+    '    txtGuests.Text = ""
+    '    txtDate.Text = ""
+    '    ' to reset for validation purposes
+    '    ddlCategory.Text = "--Choose--"
+    '    ddlTime.Text = "--Choose--"
 
-    End Sub
+    'End Sub
     ''' <summary>
     '''     Uses user input to retrieve the ID of the latest record saved to the db. It then
     '''     adds the ID to the session object for use on the success page.
@@ -122,48 +123,48 @@ Public Class index
     ''' <param name="= 'strTime"> time from the form </param>
     ''' <param name="= 'dteDate"> date from the form </param>
     ''' 
-    Private Sub SetSessionID(strName As String, strTime As String, dteNewDate As Date, intGuests As Integer, strPhone As String, strEmail As String, strCategory As String)
+    'Private Sub SetSessionID(strName As String, strTime As String, dteNewDate As Date, intGuests As Integer, strPhone As String, strEmail As String, strCategory As String)
 
-        ' create new sql statement to select Id by matching the other field attributes
-        ' note - no uniqueness checking in database so may match more than one row
-        ' will return first found
+    '    ' create new sql statement to select Id by matching the other field attributes
+    '    ' note - no uniqueness checking in database so may match more than one row
+    '    ' will return first found
 
-        Dim strSQL As String = "SELECT Id FROM tblBookings "
-        strSQL &= "WHERE [Name] = @name "
-        strSQL &= "And [Time] = @time "
-        strSQL &= "And [Date] = @date "
-        strSQL &= "And [Seats] = @seats "
-        strSQL &= "And [Phone] = @phone "
-        strSQL &= "And [Email] = @email "
-        strSQL &= "And [Category] = @category"
+    '    Dim strSQL As String = "SELECT Id FROM tblBookings "
+    '    strSQL &= "WHERE [Name] = @name "
+    '    strSQL &= "And [Time] = @time "
+    '    strSQL &= "And [Date] = @date "
+    '    strSQL &= "And [Seats] = @seats "
+    '    strSQL &= "And [Phone] = @phone "
+    '    strSQL &= "And [Email] = @email "
+    '    strSQL &= "And [Category] = @category"
 
-        ' Objects for communication with db
-        Dim sqlCmd As New SqlCommand()
+    '    ' Objects for communication with db
+    '    Dim sqlCmd As New SqlCommand()
 
-        ' complete SELECT query with current form values
-        With sqlCmd.Parameters
-            .AddWithValue("@name", strName)
-            .AddWithValue("@time", strTime)
-            .AddWithValue("@date", dteNewDate)
-            .AddWithValue("@seats", intGuests)
-            .AddWithValue("@phone", strPhone)
-            .AddWithValue("@email", strEmail)
-            .AddWithValue("@category", strCategory)
-        End With
+    '    ' complete SELECT query with current form values
+    '    With sqlCmd.Parameters
+    '        .AddWithValue("@name", strName)
+    '        .AddWithValue("@time", strTime)
+    '        .AddWithValue("@date", dteNewDate)
+    '        .AddWithValue("@seats", intGuests)
+    '        .AddWithValue("@phone", strPhone)
+    '        .AddWithValue("@email", strEmail)
+    '        .AddWithValue("@category", strCategory)
+    '    End With
 
-        ' needs to happen after parameter expansion
-        sqlCmd.CommandText = strSQL
+    '    ' needs to happen after parameter expansion
+    '    sqlCmd.CommandText = strSQL
 
-        ' execute SQL to return required dataset with ID of matching row
-        Dim ds As DataSet = QueryDB(sqlCmd)
+    '    ' execute SQL to return required dataset with ID of matching row
+    '    Dim ds As DataSet = QueryDB(sqlCmd)
 
-        ' check if a row has been returned
-        If ds.Tables(0).Rows.Count > 0 Then
-            Dim intID As Integer = ds.Tables(0).Rows(0).Item(0)
+    '    ' check if a row has been returned
+    '    If ds.Tables(0).Rows.Count > 0 Then
+    '        Dim intID As Integer = ds.Tables(0).Rows(0).Item(0)
 
-            ' Set session object
-            Session("BID") = intID
-        End If
+    '        ' Set session object
+    '        Session("BID") = intID
+    '    End If
 
-    End Sub
+    'End Sub
 End Class
