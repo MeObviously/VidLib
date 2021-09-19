@@ -102,6 +102,7 @@
     <Content Include="header.html" />
     <Content Include="index.aspx" />
     <Content Include="results.aspx" />
+    <Content Include="search.aspx" />
     <Content Include="sql\dbo.tblBookings.sql" />
     <Content Include="sql\dbo.tblBookings_insert.sql" />
     <Content Include="success.aspx" />
@@ -140,6 +141,13 @@
     </Compile>
     <Compile Include="results.aspx.vb">
       <DependentUpon>results.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="search.aspx.designer.vb">
+      <DependentUpon>search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="search.aspx.vb">
+      <DependentUpon>search.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="success.aspx.designer.vb">

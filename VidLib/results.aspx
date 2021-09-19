@@ -1,18 +1,20 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="results.aspx.vb" Inherits="VidLib.results" %>
 
 
-<%@ Response.WriteFile("header.html") %>
+    <%Response.WriteFile("header.html") %>
 
-  <div class="container">
-    <div class="main">
-        <h1>Search</h1>
-        <p>
-            This is the results page.
-        </p>
-    </div>
-</div>
-</body>
+        <div class="container">
+            <div class="main">
+                <h1>Results</h1>
 
-<%@ Response.WriteFile("footer.html") %>
+                <!-- display results from the query -->
+                <asp:PlaceHolder ID="plhResults" runat="server">
 
+                </asp:PlaceHolder>
+
+            </div>
+        </div>
+    </body>
+
+    <%Response.WriteFile("footer.html") %>
 </html>

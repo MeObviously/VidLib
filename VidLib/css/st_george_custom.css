@@ -120,3 +120,10 @@ div.two {
     border: 1px solid #010C22; /* same as results */
     padding-top: 15px;
 }
+
+div.main {
+    background-color: rgba(255, 255, 255, 0.5); /* white - semi-transparent */
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1px;
+}
