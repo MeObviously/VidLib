@@ -87,7 +87,7 @@ Public Class index
             End If
 
         End Try
-        'Call SetSessionID(strName, strTime, dteNewDate, intGuests, strPhone, strEmail, strCategory)
+        Call SetSessionID(strName, strPhone, strEmail, dteNewRentalDate, intRentalDays, strTitle, strGenre)
 
         ' redirect user to feedback page
         'Response.Redirect("success.aspx")
@@ -115,55 +115,55 @@ Public Class index
     '''     adds the ID to the session object for use on the success page.
     ''' </summary>
     ''' <param name="= 'strName"> Name from the form </param>
-    ''' <param name="= 'strEmail"> e-mail from the form </param>
-    ''' <param name="= 'intGuests"> number of guests from the form </param>
     ''' <param name="= 'strPhone"> phone number from the form </param>
-    ''' <param name="= 'strCategory"> Category from the form </param>
-    ''' <param name="= 'strTime"> time from the form </param>
-    ''' <param name="= 'dteDate"> date from the form </param>
+    ''' <param name="= 'strEmail"> e-mail from the form </param>
+    ''' <param name="= 'dteRentalDate"> Rental date from the form </param>
+    ''' <param name="= 'intRentalDays"> Rental days from the form </param>
+    ''' <param name="= 'strTitle"> title from the form </param>
+    ''' <param name="= 'strGenre"> genre from the form </param>
     ''' 
-    'Private Sub SetSessionID(strName As String, strTime As String, dteNewDate As Date, intGuests As Integer, strPhone As String, strEmail As String, strCategory As String)
+    Private Sub SetSessionID(strName As String, strPhone As String, strEmail As String, dteRentalDate As Date, intRentalDays As Integer, strTitle As String, strGenre As String)
 
-    '    ' create new sql statement to select Id by matching the other field attributes
-    '    ' note - no uniqueness checking in database so may match more than one row
-    '    ' will return first found
+        ' create new sql statement to select Id by matching the other field attributes
+        ' note - no uniqueness checking in database so may match more than one row
+        ' will return first found
 
-    '    Dim strSQL As String = "SELECT Id FROM tblBookings "
-    '    strSQL &= "WHERE [Name] = @name "
-    '    strSQL &= "And [Time] = @time "
-    '    strSQL &= "And [Date] = @date "
-    '    strSQL &= "And [Seats] = @seats "
-    '    strSQL &= "And [Phone] = @phone "
-    '    strSQL &= "And [Email] = @email "
-    '    strSQL &= "And [Category] = @category"
+        Dim strSQL As String = "SELECT Rental_Id FROM tblRentals "
+        strSQL &= "WHERE [Name] = @name "
+        strSQL &= "And [Phone] = @phone "
+        strSQL &= "And [Email] = @email "
+        strSQL &= "And [Rental_Date] = @rental_date "
+        strSQL &= "And [Rental_Days] = @rental_days "
+        strSQL &= "And [Title] = @title "
+        strSQL &= "And [Genre] = @genre"
 
-    '    ' Objects for communication with db
-    '    Dim sqlCmd As New SqlCommand()
+        ' Objects for communication with db
+        Dim sqlCmd As New SqlCommand()
 
-    '    ' complete SELECT query with current form values
-    '    With sqlCmd.Parameters
-    '        .AddWithValue("@name", strName)
-    '        .AddWithValue("@time", strTime)
-    '        .AddWithValue("@date", dteNewDate)
-    '        .AddWithValue("@seats", intGuests)
-    '        .AddWithValue("@phone", strPhone)
-    '        .AddWithValue("@email", strEmail)
-    '        .AddWithValue("@category", strCategory)
-    '    End With
+        ' complete SELECT query with current form values
+        With sqlCmd.Parameters
+            .AddWithValue("@name", strName)
+            .AddWithValue("@phone", strPhone)
+            .AddWithValue("@email", strEmail)
+            .AddWithValue("@rental_date", dteRentalDate)
+            .AddWithValue("@rental_days", intRentalDays)
+            .AddWithValue("@title", strTitle)
+            .AddWithValue("@genre", strGenre)
+        End With
 
-    '    ' needs to happen after parameter expansion
-    '    sqlCmd.CommandText = strSQL
+        ' needs to happen after parameter expansion
+        sqlCmd.CommandText = strSQL
 
-    '    ' execute SQL to return required dataset with ID of matching row
-    '    Dim ds As DataSet = QueryDB(sqlCmd)
+        ' execute SQL to return required dataset with ID of matching row
+        Dim ds As DataSet = QueryDB(sqlCmd)
 
-    '    ' check if a row has been returned
-    '    If ds.Tables(0).Rows.Count > 0 Then
-    '        Dim intID As Integer = ds.Tables(0).Rows(0).Item(0)
+        ' check if a row has been returned
+        If ds.Tables(0).Rows.Count > 0 Then
+            Dim intID As Integer = ds.Tables(0).Rows(0).Item(0)
 
-    '        ' Set session object
-    '        Session("BID") = intID
-    '    End If
+            ' Set session object
+            Session("BID") = intID
+        End If
 
-    'End Sub
+    End Sub
 End Class
