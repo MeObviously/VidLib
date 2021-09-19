@@ -1,5 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Configuration
 Public Class index
     Inherits System.Web.UI.Page
 
@@ -15,7 +14,6 @@ Public Class index
     ''' <see> InsertRecord subroutine </see>
     Protected Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         Call InsertRecord()
-
     End Sub
 
     ''' <summary>
@@ -24,6 +22,7 @@ Public Class index
     '''     It then calls ClearForm to reset the form
     ''' </summary>
     ''' <see>ClearForm subroutine</see>
+    ''' 
     Private Sub InsertRecord()
 
         ' Collect data
@@ -41,18 +40,15 @@ Public Class index
 
         dteNewDate = Date.ParseExact(txtDate.Text, "dd/MM/yyyy", provider)
 
-        ' Insert new record
+        ' insert new record
 
         ' only put partial SQL statement to avoid SQL Injection (security hack risk)
-        Dim strSQL As String = "INSERT INTO tblBookings "
-        strSQL &= "([Name], [Time], [Date], [Seats], [Phone], [Email], [Category])"
-        strSQL &= " VALUES "
-        strSQL &= "(@name, @time, @date, @seats, @phone, @email, @category)"
+        Dim strSQL As String = "INSERT INTO tblBookings ([Name], [Time], [Date], [Seats], [Phone], [Email], [Category]) VALUES ("
+        strSQL &= "@name, @time, @date, @seats, @phone, @email, @category)"
         Dim sqlCmd As SqlCommand
         Dim sqlConn As New SqlConnection(strConn)
 
         Try
-
             ' Open connection
             sqlConn.Open()
             sqlCmd = New SqlCommand(strSQL, sqlConn)
@@ -73,11 +69,14 @@ Public Class index
             sqlCmd.ExecuteNonQuery()
 
             ' success message for user
-            ' MsgBox("Your booking has been accepted. See you soon.",, "St. Georges")
+            'MsgBox("Your booking has been accepted. See you soon.",, "St. Georges")
+
             ' additional visual cue to user that things have worked successfully
             Call ClearForm()
 
+
         Catch ex As Exception
+
             ' Failure message for user
             MsgBox("An error occurred while processing your request.",, "Processing Error")
 
@@ -88,8 +87,6 @@ Public Class index
             End If
 
         End Try
-
-        ' record ID of newly inserted row so that can use to display in feedback page
         Call SetSessionID(strName, strTime, dteNewDate, intGuests, strPhone, strEmail, strCategory)
 
         ' redirect user to feedback page
@@ -113,7 +110,18 @@ Public Class index
         ddlTime.Text = "--Choose--"
 
     End Sub
-
+    ''' <summary>
+    '''     Uses user input to retrieve the ID of the latest record saved to the db. It then
+    '''     adds the ID to the session object for use on the success page.
+    ''' </summary>
+    ''' <param name="= 'strName"> Name from the form </param>
+    ''' <param name="= 'strEmail"> e-mail from the form </param>
+    ''' <param name="= 'intGuests"> number of guests from the form </param>
+    ''' <param name="= 'strPhone"> phone number from the form </param>
+    ''' <param name="= 'strCategory"> Category from the form </param>
+    ''' <param name="= 'strTime"> time from the form </param>
+    ''' <param name="= 'dteDate"> date from the form </param>
+    ''' 
     Private Sub SetSessionID(strName As String, strTime As String, dteNewDate As Date, intGuests As Integer, strPhone As String, strEmail As String, strCategory As String)
 
         ' create new sql statement to select Id by matching the other field attributes
@@ -132,8 +140,7 @@ Public Class index
         ' Objects for communication with db
         Dim sqlCmd As New SqlCommand()
 
-        ' complete INSERT query with current form values
-
+        ' complete SELECT query with current form values
         With sqlCmd.Parameters
             .AddWithValue("@name", strName)
             .AddWithValue("@time", strTime)
@@ -150,14 +157,13 @@ Public Class index
         ' execute SQL to return required dataset with ID of matching row
         Dim ds As DataSet = QueryDB(sqlCmd)
 
-        ' check if a row has been returned.
+        ' check if a row has been returned
         If ds.Tables(0).Rows.Count > 0 Then
             Dim intID As Integer = ds.Tables(0).Rows(0).Item(0)
 
-            ' set Session object
+            ' Set session object
             Session("BID") = intID
         End If
 
     End Sub
-
 End Class

@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Module Globals
-    Public strConn As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\dbRestaurantBookings.mdf';Integrated Security=True"
+    Public strConn As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\dbVideoLibrary.mdf';Integrated Security=True"
 
     ''' <summary>
     '''     Queries the database for data related to recent booking made by the user.
