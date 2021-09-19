@@ -63,7 +63,7 @@
                      <!-- Days of rental period -->
                     <p>
                         Rental Days<sup>*</sup>:
-                        <asp:DropDownList ID="ddlRentalDays" runat="server" Height="25px" ToolTip="Choose a time" Width="92px">
+                        <asp:DropDownList ID="ddlRentalDays" runat="server" Height="25px" ToolTip="Choose a time" Width="100px">
                             <asp:ListItem Value="--Choose--">--Choose--</asp:ListItem>
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
@@ -77,7 +77,7 @@
 
                     <p>
                         Title:
-                        <asp:DropDownList ID="ddlTitle" runat="server" Height="25px" ToolTip="Choose a title" Width="95px">
+                        <asp:DropDownList ID="ddlTitle" runat="server" Height="25px" ToolTip="Choose a title" Width="500px">
                             <asp:ListItem Value="--Choose--">--Choose--</asp:ListItem>
                             <asp:ListItem>Star Wars Episode I: The Phantom Menace</asp:ListItem>
                              <asp:ListItem>Star Wars Episode II: Attack of the Clones</asp:ListItem>
@@ -96,7 +96,7 @@
 
                     <p>
                         Genre:
-                        <asp:DropDownList ID="ddlGenre" runat="server" Height="25px" ToolTip="Choose a genre" Width="95px">
+                        <asp:DropDownList ID="ddlGenre" runat="server" Height="25px" ToolTip="Choose a genre" Width="200px">
                             <asp:ListItem Value="--Choose--">--Choose--</asp:ListItem>
                             <asp:ListItem>Action</asp:ListItem>
                             <asp:ListItem>Adventure</asp:ListItem>
