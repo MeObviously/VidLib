@@ -73,6 +73,24 @@
                          <asp:RequiredFieldValidator ID="rfvRentalDays" runat="server" InitialValue="--Choose--" ControlToValidate="ddlRentalDays" Display="Dynamic" ErrorMessage="Error">A rental period must be specified.</asp:RequiredFieldValidator>
                     </p>
                   
+                     <!-- Video title dropdown -->
+
+                    <p>
+                        Title:
+                        <asp:DropDownList ID="ddlTitle" runat="server" Height="25px" ToolTip="Choose a title" Width="95px">
+                            <asp:ListItem Value="--Choose--">--Choose--</asp:ListItem>
+                            <asp:ListItem>Star Wars Episode I: The Phantom Menace</asp:ListItem>
+                             <asp:ListItem>Star Wars Episode II: Attack of the Clones</asp:ListItem>
+                             <asp:ListItem>Star Wars Episode III: Revenge of the Sith</asp:ListItem>
+                             <asp:ListItem>Star Wars Episode IV: A New Hope</asp:ListItem>
+                             <asp:ListItem>Star Wars Episode V: The Empire Strikes Back</asp:ListItem>
+                             <asp:ListItem>Star Wars Episode VI: Return of the Jedi</asp:ListItem>
+                             <asp:ListItem>Star Wars Episode VII: The Forces Awakens</asp:ListItem>
+                             <asp:ListItem>Star Wars Episode VIII: The Last Jedi</asp:ListItem>
+                             <asp:ListItem>Star Wars Episode IX: The Rise of Skywalker</asp:ListItem>
+                        </asp:DropDownList>
+                         <asp:RequiredFieldValidator ID="rfvTitle" runat="server" InitialValue="--Choose--" ControlToValidate="ddlTitle" Display="Dynamic" ErrorMessage="Error">Video title is required.</asp:RequiredFieldValidator>
+                    </p>
                    
                     <!-- Video genre dropdown -->
 

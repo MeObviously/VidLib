@@ -158,6 +158,24 @@ Partial Public Class index
     Protected WithEvents rfvRentalDays As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''ddlTitle control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlTitle As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''rfvTitle control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvTitle As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''ddlGenre control.
     '''</summary>
     '''<remarks>

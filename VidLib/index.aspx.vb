@@ -30,8 +30,7 @@ Public Class index
     '    Dim strName As String = txtName.Text
     '    Dim strPhone As String = txtPhone.Text
     '    Dim strEmail As String = txtEmail.Text
-    '    Dim intGuests As Integer = txtGuests.Text
-    '    Dim strCategory As String = ddlCategory.Text
+    '    Dim strRentalDays As String = ddlRentalDays.Text
     '    Dim strTime As String = ddlTime.Text
 
     '    ' date need special handling to get into a format that can be inserted into the database
