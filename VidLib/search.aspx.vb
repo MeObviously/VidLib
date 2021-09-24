@@ -8,7 +8,7 @@ Public Class search
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Protected Sub btnNameSearch_Click(sender As Object, e As EventArgs) Handles btnNameSearch.Click
+    Protected Sub btnTitleSearch_Click(sender As Object, e As EventArgs) Handles btnTitleSearch.Click
 
         ' set up query
         Dim strSQL As String = "SELECT * FROM tblBookings WHERE [name] LIKE CONCAT('%',@name,'%')"
@@ -16,7 +16,7 @@ Public Class search
         sqlCmd.CommandText = strSQL
 
         ' complete SELECT query with current form values
-        sqlCmd.Parameters.AddWithValue("@name", txtName.Text)
+        sqlCmd.Parameters.AddWithValue("@title", txtTitle.Text)
 
         ' run query & save resulting dataset in session variable
         Call SetSession(sqlCmd)

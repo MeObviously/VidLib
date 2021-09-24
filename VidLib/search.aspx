@@ -12,27 +12,27 @@
                 <form id="frmSearch" runat="server">
                     <asp:Panel ID="pnlSearch" runat="server" BackColor="#E0E8F9">
                         <br />
-                        <!-- Name Search -->
+                        <!-- Title Search -->
                         <div class="one">
                             <p>
-                                &nbsp;Name<sup>*</sup>:&emsp;&emsp;
-                                <asp:TextBox ID="txtName" runat="server" Width="135px" ValidationGroup="Val1"></asp:TextBox>
+                                &nbsp;Title<sup>*</sup>:&emsp;&emsp;
+                                <asp:TextBox ID="txtTitle" runat="server" Width="135px" ValidationGroup="Val1"></asp:TextBox>
                                 &nbsp;&nbsp;
-                                <asp:Button ID="btnNameSearch" ValidationGroup="Val1" OnClick="btnNameSearch_Click" runat="server" Text="Search Name" Width="125px" />
+                                <asp:Button ID="btnTitleSearch" ValidationGroup="Val1" OnClick="btnTitleSearch_Click" runat="server" Text="Search Title" Width="125px" />
                                 <!-- enforce mandatory field entry -->
-                                <asp:RequiredFieldValidator ID="rfvName" ValidationGroup="Val1" runat="server" ControlToValidate="txtName" Display="Dynamic" ErrorMessage="Error">A name is required.</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="rfvTitle" ValidationGroup="Val1" runat="server" ControlToValidate="txtTitle" Display="Dynamic" ErrorMessage="Error">A title is required.</asp:RequiredFieldValidator>
                                 <!-- enforce correct format (no numbers) -->
-                                <asp:RegularExpressionValidator ValidationGroup="Val1" ID="revName" runat="server" ControlToValidate="txtName" Display="Dynamic" ErrorMessage="Error" ValidationExpression="^[A-Za-z]*$">Name cannot contain numbers.</asp:RegularExpressionValidator>
+                                <!-- <asp:RegularExpressionValidator ValidationGroup="Val1" ID="revTitle" runat="server" ControlToValidate="txtTitle" Display="Dynamic" ErrorMessage="Error" ValidationExpression="^[A-Za-z]*$">Title cannot contain numbers.</asp:RegularExpressionValidator> -->
 
                             </p>
-                        </div> <!-- end Name Search -->
+                        </div> <!-- end Title Search -->
 
                         <br />
 
                         <!-- Email Search -->
                         <div class="two">
                             <p>
-                                &ensp;Email<sup>*</sup>:&emsp;&emsp;
+                                &ensp;Genre<sup>*</sup>:&emsp;&emsp;
                                 <asp:TextBox ID="txtEmail" runat="server" Width="135px" ValidationGroup="Val2"></asp:TextBox>
                                 &nbsp;&nbsp;
                                 <asp:Button ID="btnEmailSearch" ValidationGroup="Val2" OnClick="btnEmailSearch_Click" runat="server" Text="Search Email" Width="125px" />

@@ -32,40 +32,40 @@ Partial Public Class search
     Protected WithEvents pnlSearch As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''txtName control.
+    '''txtTitle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtName As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtTitle As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''btnNameSearch control.
+    '''btnTitleSearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnNameSearch As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnTitleSearch As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''rfvName control.
+    '''rfvTitle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvName As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvTitle As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''revName control.
+    '''revTitle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents revName As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents revTitle As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''txtEmail control.
