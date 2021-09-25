@@ -68,103 +68,112 @@ Partial Public Class search
     Protected WithEvents revTitle As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''txtEmail control.
+    '''ddlGenre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlGenre As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''btnEmailSearch control.
+    '''btnGenreSearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnEmailSearch As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnGenreSearch As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''rfvEmail control.
+    '''rfvGenre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvEmail As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvGenre As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''ddlCategory control.
+    '''txtRentalDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlCategory As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtRentalDate As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''btnCategorySearch control.
+    '''btnRentalDateSearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnCategorySearch As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnRentalDateSearch As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''rfvCategory control.
+    '''rfvRentalDateSearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvCategory As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvRentalDateSearch As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''btnTodaySearch control.
+    '''revRentalDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnTodaySearch As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents revRentalDate As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''txtDate control.
+    '''txtReturnDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtDate As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtReturnDate As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''btnDateSearch control.
+    '''btnReturnDateSearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnDateSearch As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnReturnDateSearch As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''rfvDate control.
+    '''rfvReturnDateSearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvDate As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvReturnDateSearch As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''revDate control.
+    '''revReturnDateSearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents revDate As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents revReturnDateSearch As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''btnFindOverdues control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnFindOverdues As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''btnTableSearch control.
