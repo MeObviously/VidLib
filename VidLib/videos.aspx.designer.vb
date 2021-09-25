@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class index
+Partial Public Class videos
 
     '''<summary>
     '''frmMain control.

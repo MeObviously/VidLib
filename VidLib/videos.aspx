@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="videos.aspx.vb" Inherits="VidLib.index" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="videos.aspx.vb" Inherits="VidLib.videos" %>
 
 <!-- Header & Navigation  -->
 

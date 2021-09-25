@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Public Class video
+Public Class videos
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -13,10 +13,10 @@ Public Class video
     ''' <param name="e"></param>
     ''' <see> InsertRecord subroutine </see>
 
-    Protected Sub btnAddVideo_Click(sender As Object, e As EventArgs) Handles .Click
-        'Call InsertRecord()
+    Protected Sub btnAddVideo_Click(sender As Object, e As EventArgs) Handles btnAddVideo.Click
+        'Call InsertVideo()
+        MsgBox("Add Video - Success!")
     End Sub
-
     ''' <summary>
     '''     Once submitted, it is assumed that the data has been validated
     '''     This subroutine collects user input and inserts a new booking into the local database file
@@ -27,20 +27,25 @@ Public Class video
     'Private Sub InsertRecord()
 
     '    ' Collect data
+    '    Dim strName As String = txtName.Text
+    '    Dim strPhone As String = txtPhone.Text
+    '    Dim strEmail As String = txtEmail.Text
+    '    Dim intRentalDays As Integer = ddlRentalDays.Text
     '    Dim strTitle As String = ddlTitle.Text
     '    Dim strGenre As String = ddlGenre.Text
-    '    Dim strYear As String = intYear.Text
-    '    Dim strDirector As String = txtDirector.Text
 
     '    ' date need special handling to get into a format that can be inserted into the database
     '    ' setup to parse user input into a date that the database will accept
     '    Dim provider As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture
+    '    Dim dteNewRentalDate As New Date()
+
+    '    dteNewRentalDate = Date.ParseExact(txtRentalDate.Text, "dd/MM/yyyy", provider)
 
     '    ' insert new record
 
     '    ' only put partial SQL statement to avoid SQL Injection (security hack risk)
-    '    Dim strSQL As String = "INSERT INTO tblVideos ([Title], [Genre], [Year], [Director]) VALUES ("
-    '    strSQL &= "@title, @genre, @year, @director)"
+    '    Dim strSQL As String = "INSERT INTO tblRentals ([Name], [Phone], [Email], [Rental_Date], [Rental_Days], [Return_Date], [Title], [Genre]) VALUES ("
+    '    strSQL &= "@name, @phone, @email, @rental_date, @rental_days, DATEADD(day, @rental_days, @rental_date), @title, @genre)"
     '    Dim sqlCmd As SqlCommand
     '    Dim sqlConn As New SqlConnection(strConn)
 
@@ -52,20 +57,23 @@ Public Class video
     '        ' complete INSERT query with current form values
 
     '        With sqlCmd.Parameters
+    '            .AddWithValue("@name", strName)
+    '            .AddWithValue("@phone", strPhone)
+    '            .AddWithValue("@email", strEmail)
+    '            .AddWithValue("@rental_date", dteNewRentalDate)
+    '            .AddWithValue("@rental_days", intRentalDays)
     '            .AddWithValue("@title", strTitle)
     '            .AddWithValue("@genre", strGenre)
-    '            .AddWithValue("@year", strYear)
-    '            .AddWithValue("@director", strDirector)
     '        End With
 
     '        ' execute query
     '        sqlCmd.ExecuteNonQuery()
 
     '        ' success message for user
-    '        MsgBox("Your video has been booked. See you soon.",, "Bob The Video Guy")
+    '        'MsgBox("Your video has been booked. See you soon.",, "Bob The Video Guy")
 
     '        ' additional visual cue to user that things have worked successfully
-    '        'Call ClearForm()
+    '        Call ClearForm()
 
 
     '    Catch ex As Exception
@@ -80,16 +88,16 @@ Public Class video
     '        End If
 
     '    End Try
-    '    'Call SetSessionID(strTitle, strGenre, strYear, strDirector)
+    '    Call SetSessionID(strName, strPhone, strEmail, dteNewRentalDate, intRentalDays, strTitle, strGenre)
 
     '    ' redirect user to feedback page
-    '    'Response.Redirect("success.aspx")
+    '    Response.Redirect("success.aspx")
 
     'End Sub
 
-    ''' <summary>
-    '''     Resets the booking form by clearing all relevant form objects.
-    ''' </summary>
+    '''' <summary>
+    ''''     Resets the booking form by clearing all relevant form objects.
+    '''' </summary>
     'Private Sub ClearForm()
 
     '    ' Clear relevant form objects
@@ -103,18 +111,18 @@ Public Class video
     '    ddlGenre.Text = "--Choose--"
 
     'End Sub
-    ''' <summary>
-    '''     Uses user input to retrieve the ID of the latest record saved to the db. It then
-    '''     adds the ID to the session object for use on the success page.
-    ''' </summary>
-    ''' <param name="= 'strName"> Name from the form </param>
-    ''' <param name="= 'strPhone"> phone number from the form </param>
-    ''' <param name="= 'strEmail"> e-mail from the form </param>
-    ''' <param name="= 'dteRentalDate"> Rental date from the form </param>
-    ''' <param name="= 'intRentalDays"> Rental days from the form </param>
-    ''' <param name="= 'strTitle"> title from the form </param>
-    ''' <param name="= 'strGenre"> genre from the form </param>
-    ''' 
+    '''' <summary>
+    ''''     Uses user input to retrieve the ID of the latest record saved to the db. It then
+    ''''     adds the ID to the session object for use on the success page.
+    '''' </summary>
+    '''' <param name="= 'strName"> Name from the form </param>
+    '''' <param name="= 'strPhone"> phone number from the form </param>
+    '''' <param name="= 'strEmail"> e-mail from the form </param>
+    '''' <param name="= 'dteRentalDate"> Rental date from the form </param>
+    '''' <param name="= 'intRentalDays"> Rental days from the form </param>
+    '''' <param name="= 'strTitle"> title from the form </param>
+    '''' <param name="= 'strGenre"> genre from the form </param>
+    '''' 
     'Private Sub SetSessionID(strName As String, strPhone As String, strEmail As String, dteRentalDate As Date, intRentalDays As Integer, strTitle As String, strGenre As String)
 
     '    ' create new sql statement to select Id by matching the other field attributes
