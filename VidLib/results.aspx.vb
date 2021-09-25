@@ -53,7 +53,7 @@
 
                 ' these are for formatting times and dates
 
-                Dim strDateFormat As String = "ddd MMM d, yyyy"
+                Dim strDateFormat As String = "dd-MM-yyyy"
                 Dim dteRentalDate As Date = Date.Parse(row(4).ToString)
                 Dim dteReturnDate As Date = Date.Parse(row(6).ToString)
 

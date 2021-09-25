@@ -5,7 +5,7 @@
 
         <div class="container">
             <div class="main">
-                <h1>Results</h1>
+                <h1>Rentals matching your search:</h1>
 
                 <!-- display results from the query -->
                 <asp:PlaceHolder ID="plhResults" runat="server">

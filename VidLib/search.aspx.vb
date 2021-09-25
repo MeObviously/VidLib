@@ -47,27 +47,19 @@ Public Class search
 
         ' setup to parse user input into a date that the database will accept
         Dim provider As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture
-        Dim dteNewDate As New Date
+        Dim dteNewRentalDate As New Date
 
         'Dim strDate As String = "2020-11-08"
         Dim strDate As String = txtRentalDate.Text
 
-        Dim dteTmp As New Date
-        Try
-            dteTmp = Date.ParseExact(strDate, "yyyy-MM-dd", provider)
-
-        Catch ex As Exception
-            MsgBox("Unable to parse " & strDate)
-        End Try
-
-        dteNewDate = Date.ParseExact(txtRentalDate.Text, "yyyy-MM-dd", provider)
+        dteNewRentalDate = Date.ParseExact(txtRentalDate.Text, "dd/MM/yyyy", provider)
 
         ' set up query completing using parsed date input
-        Dim strSQL As String = "SELECT * FROM tblBookings WHERE [Rental_Date] = @rental_date"
+        Dim strSQL As String = "SELECT * FROM tblRentals WHERE [Rental_Date] = @rental_date"
         Dim sqlCmd As New SqlCommand(strSQL)
 
         ' complete SELECT query with current form values
-        sqlCmd.Parameters.AddWithValue("@rental_date", txtRentalDate.Text)
+        sqlCmd.Parameters.AddWithValue("@rental_date", dteNewRentalDate)
 
         ' run query & save resulting dataset in session variable
         Call SetSession(sqlCmd)
@@ -78,27 +70,19 @@ Public Class search
 
         ' setup to parse user input into a date that the database will accept
         Dim provider As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture
-        Dim dteNewDate As New Date
+        Dim dteNewReturnDate As New Date
 
         'Dim strDate As String = "2020-11-08"
         Dim strDate As String = txtReturnDate.Text
 
-        Dim dteTmp As New Date
-        Try
-            dteTmp = Date.ParseExact(strDate, "yyyy-MM-dd", provider)
-
-        Catch ex As Exception
-            MsgBox("Unable to parse " & strDate)
-        End Try
-
-        dteNewDate = Date.ParseExact(txtReturnDate.Text, "yyyy-MM-dd", provider)
+        dteNewReturnDate = Date.ParseExact(txtReturnDate.Text, "dd/MM/yyyy", provider)
 
         ' set up query completing using parsed date input
-        Dim strSQL As String = "SELECT * FROM tblBookings WHERE [Return_Date] = @return_date"
+        Dim strSQL As String = "SELECT * FROM tblRentals WHERE [Return_Date] = @return_date"
         Dim sqlCmd As New SqlCommand(strSQL)
 
         ' complete SELECT query with current form values
-        sqlCmd.Parameters.AddWithValue("@return_date", txtReturnDate.Text)
+        sqlCmd.Parameters.AddWithValue("@return_date", dteNewReturnDate)
 
         ' run query & save resulting dataset in session variable
         Call SetSession(sqlCmd)
