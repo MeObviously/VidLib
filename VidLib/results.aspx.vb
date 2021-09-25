@@ -34,12 +34,13 @@
             ' Add table header row
             strBuilder.Append("<tr class=""results"">")
             strBuilder.Append("<th class=""results"">Name</th>")
-            strBuilder.Append("<th class=""results"">Time</th>")
-            strBuilder.Append("<th class=""results"">Date</th>")
-            strBuilder.Append("<th class=""results"">Seats</th>")
             strBuilder.Append("<th class=""results"">Phone</th>")
             strBuilder.Append("<th class=""results"">Email</th>")
-            strBuilder.Append("<th class=""results"">Category</th>")
+            strBuilder.Append("<th class=""results"">Rental Date</th>")
+            strBuilder.Append("<th class=""results"">Rental Days</th>")
+            strBuilder.Append("<th class=""results"">Return Date</th>")
+            strBuilder.Append("<th class=""results"">Title</th>")
+            strBuilder.Append("<th class=""results"">Genre</th>")
 
             ' Close table header row
             strBuilder.Append("</tr>")
@@ -51,10 +52,10 @@
             For Each row As DataRow In ds.Tables(0).Rows
 
                 ' these are for formatting times and dates
-                Dim strHours As String = row(2).ToString.Substring(0, 2)
-                Dim strMins As String = row(2).ToString.Substring(3, 2)
+
                 Dim strDateFormat As String = "ddd MMM d, yyyy"
-                Dim dteDate As Date = Date.Parse(row(3).ToString)
+                Dim dteRentalDate As Date = Date.Parse(row(4).ToString)
+                Dim dteReturnDate As Date = Date.Parse(row(6).ToString)
 
 
                 ' Add table row
@@ -63,12 +64,14 @@
                 ' add data elements
 
                 strBuilder.Append("<td class=""results"">" & row(1) & "</td>") ' col 1 - name
-                strBuilder.Append("<td class=""results"">" & strHours & ":" & strMins & "</td>") ' - time
-                strBuilder.Append("<td class=""results"">" & dteDate.ToString(strDateFormat) & "</td>") ' - date
-                strBuilder.Append("<td class=""results"">" & row(4) & "</td>") ' col 4 - seats
-                strBuilder.Append("<td class=""results"">" & row(5) & "</td>") ' col 5 - phone
-                strBuilder.Append("<td class=""results"">" & row(6) & "</td>") ' col 6 - email
-                strBuilder.Append("<td class=""results"">" & row(7) & "</td>") ' col 7 - category
+                strBuilder.Append("<td class=""results"">" & row(2) & "</td>") ' col 2 - phone
+                strBuilder.Append("<td class=""results"">" & row(3) & "</td>") ' col 3 - email
+                strBuilder.Append("<td class=""results"">" & dteRentalDate.ToString(strDateFormat) & "</td>") ' - rental date
+                strBuilder.Append("<td class=""results"">" & row(5) & "</td>") ' col 5 - rental days
+                strBuilder.Append("<td class=""results"">" & dteReturnDate.ToString(strDateFormat) & "</td>") ' - return date
+                strBuilder.Append("<td class=""results"">" & row(7) & "</td>") ' col 7 - title
+                strBuilder.Append("<td class=""results"">" & row(8) & "</td>") ' col 8 - genre
+
 
                 ' close table data row
                 strBuilder.Append("</tr>")

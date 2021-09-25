@@ -11,7 +11,7 @@ Public Class search
     Protected Sub btnTitleSearch_Click(sender As Object, e As EventArgs) Handles btnTitleSearch.Click
 
         ' set up query
-        Dim strSQL As String = "SELECT * FROM tblBookings WHERE [name] LIKE CONCAT('%',@name,'%')"
+        Dim strSQL As String = "SELECT * FROM tblRentals WHERE [Title] LIKE CONCAT('%',@title,'%')"
         Dim sqlCmd As New SqlCommand()
         sqlCmd.CommandText = strSQL
 

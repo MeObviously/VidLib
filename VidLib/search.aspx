@@ -16,7 +16,7 @@
                         <div class="one">
                             <p>
                                 &nbsp;Title<sup>*</sup>:&emsp;&emsp;
-                                <asp:TextBox ID="txtTitle" runat="server" Width="135px" ValidationGroup="Val1"></asp:TextBox>
+                                <asp:TextBox ID="txtTitle" runat="server" Width="400px" ValidationGroup="Val1"></asp:TextBox>
                                 &nbsp;&nbsp;
                                 <asp:Button ID="btnTitleSearch" ValidationGroup="Val1" OnClick="btnTitleSearch_Click" runat="server" Text="Search Title" Width="125px" />
                                 <!-- enforce mandatory field entry -->
