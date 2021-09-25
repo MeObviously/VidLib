@@ -32,40 +32,40 @@ Partial Public Class index
     Protected WithEvents pnlBookingForm As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''ddlTitle control.
+    '''ddlVideoTitle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlTitle As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlVideoTitle As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''rfvTitle control.
+    '''rfvVideoTitle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvTitle As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvVideoTitle As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''ddlGenre control.
+    '''ddlVideoGenre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlGenre As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlVideoGenre As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''rfvGenre control.
+    '''rfvVideoGenre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvGenre As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvVideoGenre As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''intYear control.
