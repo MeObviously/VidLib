@@ -102,11 +102,11 @@ Public Class search
     ''' <param name="e"></param>
     Protected Sub btnTableSearch_Click(sender As Object, e As EventArgs) Handles btnTableSearch.Click
         ' set up query
-        Dim strSQL As String = "SELECT * FROM tblBookings WHERE [seats] >= @seats;"
+        Dim strSQL As String = "SELECT * FROM tblBookings WHERE [Rental_Date] >= @rental_date;"
         Dim sqlCmd As New SqlCommand(strSQL)
 
         ' complete SELECT query with current form values
-        sqlCmd.Parameters.AddWithValue("@seats", "4")
+        sqlCmd.Parameters.AddWithValue("@rental_date", "4")
 
         ' run query & save resulting dataset in session variable
         Call SetSession(sqlCmd)
