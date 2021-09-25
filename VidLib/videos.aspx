@@ -75,11 +75,11 @@
                          <!-- enforce mandatory field entry -->
                         <asp:RequiredFieldValidator ID="rfvDirector" runat="server" ControlToValidate="txtDirector" Display="Dynamic" ErrorMessage="Error">A director is required.</asp:RequiredFieldValidator>
                         <!-- enforce correct format (no numbers) -->
-                                <asp:RegularExpressionValidator ID="revDirector" runat="server" ControlToValidate="txtDirector" Display="Dynamic" ErrorMessage="Error" ValidationExpression="^[A-Za-z]*$">Director name cannot contain letters.</asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="revDirector" runat="server" ControlToValidate="txtDirector" Display="Dynamic" ErrorMessage="Error" ValidationExpression="^[A-Z a-z]*$">Director name cannot contain numbers.</asp:RegularExpressionValidator>
                     </p>
 
                     <!-- <asp:Button ID="Button1" runat="server" CausesValidation="true" Text="Submit" Width="70px" /> -->
-                    <asp:Button ID="btnAddVideo" runat="server" Text="Add Video" Width="70px" />
+                    <asp:Button ID="btnAddVideo" runat="server" Text="Add Video" Width="100px" />
                     <br />
                     <br />
                 </asp:Panel>

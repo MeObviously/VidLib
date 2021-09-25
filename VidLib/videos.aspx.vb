@@ -14,8 +14,7 @@ Public Class videos
     ''' <see> InsertRecord subroutine </see>
 
     Protected Sub btnAddVideo_Click(sender As Object, e As EventArgs) Handles btnAddVideo.Click
-        'Call InsertVideo()
-        MsgBox("Add Video - Success!")
+        Call InsertVideo()
     End Sub
     ''' <summary>
     '''     Once submitted, it is assumed that the data has been validated
@@ -24,76 +23,64 @@ Public Class videos
     ''' </summary>
     ''' <see>ClearForm subroutine</see>
     ''' 
-    'Private Sub InsertRecord()
+    Private Sub InsertVideo()
 
-    '    ' Collect data
-    '    Dim strName As String = txtName.Text
-    '    Dim strPhone As String = txtPhone.Text
-    '    Dim strEmail As String = txtEmail.Text
-    '    Dim intRentalDays As Integer = ddlRentalDays.Text
-    '    Dim strTitle As String = ddlTitle.Text
-    '    Dim strGenre As String = ddlGenre.Text
+        ' Collect data
+        Dim strVideoTitle As String = ddlVideoTitle.Text
+        Dim strVideoGenre As String = ddlVideoGenre.Text
+        Dim strYear As String = intYear.Text
+        Dim strDirector As String = txtDirector.Text
 
-    '    ' date need special handling to get into a format that can be inserted into the database
-    '    ' setup to parse user input into a date that the database will accept
-    '    Dim provider As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture
-    '    Dim dteNewRentalDate As New Date()
+        ' insert new record
 
-    '    dteNewRentalDate = Date.ParseExact(txtRentalDate.Text, "dd/MM/yyyy", provider)
+        ' only put partial SQL statement to avoid SQL Injection (security hack risk)
+        Dim strSQL As String = "INSERT INTO tblVideos ([Video_Title], [Video_Genre], [Year], [Director]) VALUES ("
+        strSQL &= "@video_title, @video_genre, @year, @director)"
+        Dim sqlCmd As SqlCommand
+        Dim sqlConn As New SqlConnection(strConn)
 
-    '    ' insert new record
+        Try
+            ' Open connection
+            sqlConn.Open()
+            sqlCmd = New SqlCommand(strSQL, sqlConn)
 
-    '    ' only put partial SQL statement to avoid SQL Injection (security hack risk)
-    '    Dim strSQL As String = "INSERT INTO tblRentals ([Name], [Phone], [Email], [Rental_Date], [Rental_Days], [Return_Date], [Title], [Genre]) VALUES ("
-    '    strSQL &= "@name, @phone, @email, @rental_date, @rental_days, DATEADD(day, @rental_days, @rental_date), @title, @genre)"
-    '    Dim sqlCmd As SqlCommand
-    '    Dim sqlConn As New SqlConnection(strConn)
+            ' complete INSERT query with current form values
 
-    '    Try
-    '        ' Open connection
-    '        sqlConn.Open()
-    '        sqlCmd = New SqlCommand(strSQL, sqlConn)
+            With sqlCmd.Parameters
+                .AddWithValue("@video_title", strVideoTitle)
+                .AddWithValue("@video_genre", strVideoGenre)
+                .AddWithValue("@year", strYear)
+                .AddWithValue("@director", strDirector)
+            End With
 
-    '        ' complete INSERT query with current form values
+            ' execute query
+            sqlCmd.ExecuteNonQuery()
 
-    '        With sqlCmd.Parameters
-    '            .AddWithValue("@name", strName)
-    '            .AddWithValue("@phone", strPhone)
-    '            .AddWithValue("@email", strEmail)
-    '            .AddWithValue("@rental_date", dteNewRentalDate)
-    '            .AddWithValue("@rental_days", intRentalDays)
-    '            .AddWithValue("@title", strTitle)
-    '            .AddWithValue("@genre", strGenre)
-    '        End With
+            ' success message for user
+            MsgBox("Your video has been added. See you soon.",, "Bob The Video Guy")
 
-    '        ' execute query
-    '        sqlCmd.ExecuteNonQuery()
-
-    '        ' success message for user
-    '        'MsgBox("Your video has been booked. See you soon.",, "Bob The Video Guy")
-
-    '        ' additional visual cue to user that things have worked successfully
-    '        Call ClearForm()
+            ' additional visual cue to user that things have worked successfully
+            'Call ClearForm()
 
 
-    '    Catch ex As Exception
+        Catch ex As Exception
 
-    '        ' Failure message for user
-    '        MsgBox("An error occurred while processing your request.",, "Processing Error")
+            ' Failure message for user
+            MsgBox("An error occurred while processing your request.",, "Processing Error")
 
-    '    Finally
-    '        ' always close any open connections (regardless of whether exception or not)
-    '        If sqlConn.State = ConnectionState.Open Then
-    '            sqlConn.Close()
-    '        End If
+        Finally
+            ' always close any open connections (regardless of whether exception or not)
+            If sqlConn.State = ConnectionState.Open Then
+                sqlConn.Close()
+            End If
 
-    '    End Try
-    '    Call SetSessionID(strName, strPhone, strEmail, dteNewRentalDate, intRentalDays, strTitle, strGenre)
+        End Try
+        'Call SetSessionID(strVideoTitle, strVideoGenre, strYear, strDirector)
 
-    '    ' redirect user to feedback page
-    '    Response.Redirect("success.aspx")
+        ' redirect user to feedback page
+        'Response.Redirect("success.aspx")
 
-    'End Sub
+    End Sub
 
     '''' <summary>
     ''''     Resets the booking form by clearing all relevant form objects.
