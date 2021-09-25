@@ -32,7 +32,7 @@ Public Class search
 
     Protected Sub btnGenreSearch_Click(sender As Object, e As EventArgs) Handles btnGenreSearch.Click
         ' set up query
-        Dim strSQL As String = "SELECT * FROM tblBookings WHERE [genre] = @genre;"
+        Dim strSQL As String = "SELECT * FROM tblRentals WHERE [Genre] = @genre;"
         Dim sqlCmd As New SqlCommand()
         sqlCmd.CommandText = strSQL
 
