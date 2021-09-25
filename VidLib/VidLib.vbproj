@@ -106,6 +106,7 @@
     <Content Include="sql\dbo.tblBookings.sql" />
     <Content Include="sql\dbo.tblBookings_insert.sql" />
     <Content Include="success.aspx" />
+    <Content Include="success_videos.aspx" />
     <Content Include="videos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -156,6 +157,13 @@
     </Compile>
     <Compile Include="success.aspx.vb">
       <DependentUpon>success.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="success_videos.aspx.designer.vb">
+      <DependentUpon>success_videos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="success_videos.aspx.vb">
+      <DependentUpon>success_videos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="videos.aspx.designer.vb">

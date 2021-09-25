@@ -85,19 +85,15 @@ Public Class videos
     '''' <summary>
     ''''     Resets the booking form by clearing all relevant form objects.
     '''' </summary>
-    'Private Sub ClearForm()
+    Private Sub ClearForm()
 
-    '    ' Clear relevant form objects
-    '    txtName.Text = ""
-    '    txtPhone.Text = ""
-    '    txtEmail.Text = ""
-    '    txtRentalDate.Text = ""
-    '    ' to reset for validation purposes
-    '    ddlRentalDays.Text = "--Choose--"
-    '    ddlTitle.Text = "--Choose--"
-    '    ddlGenre.Text = "--Choose--"
+        ' Clear relevant form objects
+        ddlVideoTitle.Text = "--Choose--"
+        ddlVideoGenre.Text = "--Choose--"
+        intYear.Text = ""
+        txtDirector.Text = ""
 
-    'End Sub
+    End Sub
     '''' <summary>
     ''''     Uses user input to retrieve the ID of the latest record saved to the db. It then
     ''''     adds the ID to the session object for use on the success page.
