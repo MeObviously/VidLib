@@ -32,13 +32,13 @@ Partial Public Class videos
     Protected WithEvents pnlBookingForm As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''ddlVideoTitle control.
+    '''txtVideoTitle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlVideoTitle As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtVideoTitle As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''rfvVideoTitle control.
@@ -48,6 +48,15 @@ Partial Public Class videos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvVideoTitle As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revVideoTitle control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revVideoTitle As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''ddlVideoGenre control.

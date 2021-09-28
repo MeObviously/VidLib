@@ -20,9 +20,9 @@
                   
                      <!-- Video title dropdown -->
 
-                    <p>
+                    <%--<p>
                         Title<sup>*</sup>:<br />
-                        <asp:DropDownList ID="ddlVideoTitle" runat="server" Height="25px" ToolTip="Choose a title" Width="500px">
+                        <asp:DropDownList ID="txtVideoTitle" runat="server" Height="25px" ToolTip="Choose a title" Width="500px">
                             <asp:ListItem Value="--Choose--">--Choose--</asp:ListItem>
                             <asp:ListItem>Star Wars Episode I: The Phantom Menace</asp:ListItem>
                              <asp:ListItem>Star Wars Episode II: Attack of the Clones</asp:ListItem>
@@ -34,7 +34,18 @@
                              <asp:ListItem>Star Wars Episode VIII: The Last Jedi</asp:ListItem>
                              <asp:ListItem>Star Wars Episode IX: The Rise of Skywalker</asp:ListItem>
                         </asp:DropDownList>
-                         <asp:RequiredFieldValidator ID="rfvVideoTitle" runat="server" InitialValue="--Choose--" ControlToValidate="ddlVideoTitle" Display="Dynamic" ErrorMessage="Error">Video title is required.</asp:RequiredFieldValidator>
+                         <asp:RequiredFieldValidator ID="rfvVideoTitle" runat="server" InitialValue="--Choose--" ControlToValidate="txtVideoTitle" Display="Dynamic" ErrorMessage="Error">Video title is required.</asp:RequiredFieldValidator>
+                    </p>--%>
+
+                    
+                      <!-- Name -->
+                    <p>
+                        Title<sup>*</sup>:<br />
+                        <asp:TextBox ID="txtVideoTitle" runat="server" Width="400px"></asp:TextBox>
+                         <!-- enforce mandatory field entry -->
+                        <asp:RequiredFieldValidator ID="rfvVideoTitle" runat="server" ControlToValidate="txtVideoTitle" Display="Dynamic" ErrorMessage="Error">A title is required.</asp:RequiredFieldValidator>
+                        <!-- enforce correct format (no numbers) -->
+                                <asp:RegularExpressionValidator ID="revVideoTitle" runat="server" ControlToValidate="txtVideoTitle" Display="Dynamic" ErrorMessage="Error" ValidationExpression="^[A-Z a-z]*$">Video title cannot contain numbers.</asp:RegularExpressionValidator>
                     </p>
                    
                     <!-- Video genre dropdown -->
@@ -58,7 +69,7 @@
                          <asp:RequiredFieldValidator ID="rfvVideoGenre" runat="server" InitialValue="--Choose--" ControlToValidate="ddlVideoGenre" Display="Dynamic" ErrorMessage="Error">Video genre is required.</asp:RequiredFieldValidator>
                     </p>
 
-                      <!-- Name -->
+                      <!-- Year -->
                     <p>
                         Year<sup>*</sup>:<br />
                         <asp:TextBox ID="intYear" runat="server" Width="135px"></asp:TextBox>
@@ -68,7 +79,7 @@
                                 <asp:RegularExpressionValidator ID="revYear" runat="server" ControlToValidate="intYear" Display="Dynamic" ErrorMessage="Error" ValidationExpression="^[0-9]*$">Year cannot contain letters.</asp:RegularExpressionValidator>
                     </p>
 
-                      <!-- Name -->
+                      <!-- Director -->
                     <p>
                         Director<sup>*</sup>:<br />
                         <asp:TextBox ID="txtDirector" runat="server" Width="135px"></asp:TextBox>

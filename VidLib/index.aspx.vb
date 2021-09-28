@@ -4,6 +4,24 @@ Public Class index
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+        ' retrieve list of videos from database table into dataset if not already loaded
+        If ddlTitle.Items.Count <= 1 Then
+
+            Dim strSQL_Video As String = "SELECT * FROM tblVideos"
+            Dim sqlCmd_Video As New SqlCommand(strSQL_Video)
+            Dim ds_Video As DataSet = QueryDB(sqlCmd_Video)
+
+            ' set dropdown list values to dataset 
+            ddlTitle.DataTextField = ds_Video.Tables(0).Columns(1).ToString()   ' Video_Title
+            ddlTitle.DataValueField = ds_Video.Tables(0).Columns(0).ToString()  ' Video_Id
+            'assign dataset as dropdown data source
+            ddlTitle.DataSource = ds_Video.Tables(0)
+            ' bind ds to dropdown
+            ddlTitle.DataBind()
+
+        End If
+
+
     End Sub
 
     ''' <summary>
@@ -30,8 +48,9 @@ Public Class index
         Dim strPhone As String = txtPhone.Text
         Dim strEmail As String = txtEmail.Text
         Dim intRentalDays As Integer = ddlRentalDays.Text
-        Dim strTitle As String = ddlTitle.Text
+        Dim strTitle As String = ddlTitle.SelectedItem.Text
         Dim strGenre As String = ddlGenre.Text
+        Dim intVideoId As Integer = ddlTitle.SelectedItem.Value
 
         ' date need special handling to get into a format that can be inserted into the database
         ' setup to parse user input into a date that the database will accept
@@ -43,8 +62,30 @@ Public Class index
         ' insert new record
 
         ' only put partial SQL statement to avoid SQL Injection (security hack risk)
-        Dim strSQL As String = "INSERT INTO tblRentals ([Name], [Phone], [Email], [Rental_Date], [Rental_Days], [Return_Date], [Title], [Genre]) VALUES ("
-        strSQL &= "@name, @phone, @email, @rental_date, @rental_days, DATEADD(day, @rental_days, @rental_date), @title, @genre)"
+        Dim strSQL As String = "INSERT INTO tblRentals "
+        strSQL &= "("
+        strSQL &= " [Name], "
+        strSQL &= " [Phone], "
+        strSQL &= " [Email], "
+        strSQL &= " [Rental_Date],"
+        strSQL &= " [Rental_Days], "
+        strSQL &= " [Return_Date], "
+        strSQL &= " [Title], "
+        strSQL &= " [Genre], "
+        strSQL &= " [Video_Id] "
+        strSQL &= ")"
+        strSQL &= "VALUES "
+        strSQL &= "("
+        strSQL &= "@name, "
+        strSQL &= "@phone, "
+        strSQL &= "@email, "
+        strSQL &= "@rental_date, "
+        strSQL &= "@rental_days, "
+        strSQL &= "DateAdd(Day, @rental_days, @rental_date), "
+        strSQL &= "@title, "
+        strSQL &= "@genre, "
+        strSQL &= "@video_id"
+        strSQL &= ")"
         Dim sqlCmd As SqlCommand
         Dim sqlConn As New SqlConnection(strConn)
 
@@ -63,6 +104,7 @@ Public Class index
                 .AddWithValue("@rental_days", intRentalDays)
                 .AddWithValue("@title", strTitle)
                 .AddWithValue("@genre", strGenre)
+                .AddWithValue("@video_id", intVideoId)
             End With
 
             ' execute query
@@ -78,7 +120,7 @@ Public Class index
         Catch ex As Exception
 
             ' Failure message for user
-            MsgBox("An error occurred while processing your request.",, "Processing Error")
+            MsgBox("An Error occurred While processing your request.",, "Processing Error")
 
         Finally
             ' always close any open connections (regardless of whether exception or not)
@@ -164,6 +206,25 @@ Public Class index
             ' Set session object
             Session("BID") = intID
         End If
+
+    End Sub
+
+
+    Protected Sub ddlTitle_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlTitle.SelectedIndexChanged
+
+        Dim intVideoId = ddlTitle.SelectedItem.Value ' ID of selected customer
+
+        ' retrieve category values from database table into dataset 
+
+        Dim strSQL_Customer = "SELECT * FROM tblVideos WHERE [Video_id] = " + intVideoId
+        Dim sqlCmd_Customer As New SqlCommand(strSQL_Customer)
+        Dim ds_Customer As DataSet = QueryDB(sqlCmd_Customer)
+
+        For Each row As DataRow In ds_Customer.Tables(0).Rows
+
+            ddlGenre.Text = row(2).ToString()  ' tblVideos.Video_Genre
+
+        Next
 
     End Sub
 End Class

@@ -14,10 +14,10 @@ Public Class success_videos
             Dim strBuilder As StringBuilder = New StringBuilder()
 
         ' Create table
-        strBuilder.Append("<table class=""results_videos"">")
+        strBuilder.Append("<table class=""results"">")
 
         ' Add table header row
-        strBuilder.Append("<tr class=""results_videos"">")
+        strBuilder.Append("<tr class=""results"">")
         strBuilder.Append("<th class=""results"">Video Title</th>")
         strBuilder.Append("<th class=""results"">Video Genre</th>")
         strBuilder.Append("<th class=""results"">Year</th>")
@@ -29,41 +29,33 @@ Public Class success_videos
         ' create new sql statement to select row by matching Id with the one saved in the session ID
         Dim strSQL As String = "SELECT * FROM tblVideos WHERE [Video_Id] = " & Session("BID")
         Dim sqlCmd As New SqlCommand()
-            sqlCmd.CommandText = strSQL
+        sqlCmd.CommandText = strSQL
 
-            ' Add table data row
-            Dim ds As DataSet = QueryDB(sqlCmd)
+        ' Add table data row
+        Dim ds As DataSet = QueryDB(sqlCmd)
 
-            ' Loop through rows to display
-            ' At the moment, this should only display one record, 
-            ' but we may choose to display multiple records at a later date.
+        ' Loop through rows to display
+        ' At the moment, this should only display one record, 
+        ' but we may choose to display multiple records at a later date.
 
-            For Each row As DataRow In ds.Tables(0).Rows
+        For Each row As DataRow In ds.Tables(0).Rows
 
-                ' these are for formatting times and dates
-                Dim strDateFormat As String = "ddd MMM d, yyyy"
-                Dim dteRentalDate As Date = Date.Parse(row(4).ToString)
-                Dim dteReturnDate As Date = Date.Parse(row(6).ToString)
+            ' Add table row
+            strBuilder.Append("<tr class=""results"">")
 
-                ' Add table row
-                strBuilder.Append("<tr class=""results"">")
+            ' add data elements
+            strBuilder.Append("<td class=""results"">" & row(1) & "</td>") ' col 1 - video title
+            strBuilder.Append("<td class=""results"">" & row(2) & "</td>") ' col 2 - video genre
+            strBuilder.Append("<td class=""results"">" & row(3) & "</td>") ' col 3 - year
+            strBuilder.Append("<td class=""results"">" & row(4) & "</td>") ' col 5 - director
 
-                ' add data elements
-                strBuilder.Append("<td class=""results"">" & row(1) & "</td>") ' col 1 - name
-                strBuilder.Append("<td class=""results"">" & row(2) & "</td>") ' col 2 - phone
-                strBuilder.Append("<td class=""results"">" & row(3) & "</td>") ' col 3 - email
-                strBuilder.Append("<td class=""results"">" & dteRentalDate.ToString(strDateFormat) & "</td>") ' - rental date
-                strBuilder.Append("<td class=""results"">" & row(5) & "</td>") ' col 5 - rental days
-                strBuilder.Append("<td class=""results"">" & dteReturnDate.ToString(strDateFormat) & "</td>") ' - return date
-                strBuilder.Append("<td class=""results"">" & row(7) & "</td>") ' col 7 - title
-                strBuilder.Append("<td class=""results"">" & row(8) & "</td>") ' col 8 - genre
 
-                ' close table data row
-                strBuilder.Append("</tr>")
-            Next
+            ' close table data row
+            strBuilder.Append("</tr>")
+        Next
 
-            ' close table and add to placeholder
-            strBuilder.Append("</table>")
+        ' close table and add to placeholder
+        strBuilder.Append("</table>")
         plhVideoDataTable.Controls.Add(New LiteralControl(strBuilder.ToString()))
 
     End Sub

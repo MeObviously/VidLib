@@ -12,6 +12,8 @@
 
                 <asp:PlaceHolder ID="plhDataTable" runat="server"></asp:PlaceHolder>
 
+                <br />
+
             </div>
         </div>
     </body>
