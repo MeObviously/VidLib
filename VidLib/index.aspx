@@ -252,35 +252,45 @@
                     </asp:RequiredFieldValidator>
 
                 </p>
+                <!-- submit button for fields -->
 
                 <!-- <asp:Button ID="Button1" runat="server" CausesValidation="true" Text="Submit" Width="70px" /> -->
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" Width="70px" />
                 <br />
                 <br />
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
-                    <AlternatingRowStyle BackColor="White" />
-                    <Columns>
-                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                        <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" />
-                        <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                        <asp:BoundField DataField="Rental_Date" HeaderText="Rental_Date" SortExpression="Rental_Date" />
-                        <asp:BoundField DataField="Return_Date" HeaderText="Return_Date" SortExpression="Return_Date" />
-                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                        <asp:BoundField DataField="Genre" HeaderText="Genre" SortExpression="Genre" />
-                    </Columns>
-                    <EditRowStyle BackColor="#2461BF" />
-                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#EFF3FB" />
-                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
-                </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [Name], [Phone], [Email], [Rental_Date], [Return_Date], [Title], [Genre] FROM [tblRentals]"></asp:SqlDataSource>
-                <br />
+
+                <div class="grid">
+                    <h2>Rentals</h2>
+                    <asp:GridView ID="gvRentals"
+                        runat="server"
+                        AutoGenerateColumns="False"
+                        DataSourceID="SqlDataSource_Rentals"
+                        ForeColor="#333333"
+                        GridLines="None"
+                        BorderColor="Black"
+                        BorderWidth="5px"
+                        Width="900px"
+                    >
+                        <columns>
+                            <asp:BoundField DataField="Pad" HeaderText="" SortExpression="" ItemStyle-Width="5" />
+                            <asp:BoundField DataField="Ref" HeaderText="Ref" SortExpression="Ref" ItemStyle-Width="10" />
+                            <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" ItemStyle-Width="30%" ItemStyle-Wrap="false" />
+                            <asp:BoundField DataField="Pad" HeaderText="" SortExpression="" ItemStyle-Width="5" ItemStyle-Wrap="false" />
+                            <asp:BoundField DataField="Genre" HeaderText="Genre" SortExpression="Genre" ItemStyle-Width="30" ItemStyle-Wrap="false" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-Width="40" ItemStyle-Wrap="false"/>
+                            <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" ItemStyle-Width="35" ItemStyle-Wrap="false"/>
+                            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-Width="15%" ItemStyle-Wrap="false" />
+                            <asp:BoundField DataField="Rental_Date" HeaderText="Rented" SortExpression="Rental_Date" ItemStyle-Width="10%" ItemStyle-Wrap="false" />
+                            <asp:BoundField DataField="Return_Date" HeaderText="Return By" SortExpression="Return_Date" ItemStyle-Width="10%" ItemStyle-Wrap="false" ItemStyle-HorizontalAlign="Center"/>
+                        </columns>
+                        <headerstyle cssclass="gv-headerStyle" />
+                        <rowstyle cssclass="gv-itemStyle" />
+                        <alternatingrowstyle cssclass="gv-alternateItemStyle" />
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource_Rentals" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT ' ' As Pad, [Rental_Id] As Ref, [Name], [Phone], [Email], CONVERT(VARCHAR,[Rental_Date],6) AS Rental_Date, CONVERT(VARCHAR,[Return_Date],6) AS Return_Date, [Title], [Genre] FROM [tblRentals]"></asp:SqlDataSource>
+                    <br />
+                </div>
+                <!-- Grid content end  -->
  
 
                 <br />
@@ -298,7 +308,7 @@
 
 <!-- Footer starts below -->
 
-<%--                            <asp:ListItem>Star Wars Episode I: The Phantom Menace</asp:ListItem>
+<%--                        <asp:ListItem>Star Wars Episode I: The Phantom Menace</asp:ListItem>
                             <asp:ListItem>Star Wars Episode II: Attack of the Clones</asp:ListItem>
                             <asp:ListItem>Star Wars Episode III: Revenge of the Sith</asp:ListItem>
                             <asp:ListItem>Star Wars Episode IV: A New Hope</asp:ListItem>
