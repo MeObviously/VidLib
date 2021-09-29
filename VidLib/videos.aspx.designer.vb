@@ -147,4 +147,22 @@ Partial Public Class videos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnAddVideo As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''gvVideos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gvVideos As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''SqlDataSource_Videos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SqlDataSource_Videos As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

@@ -93,6 +93,38 @@
                     <asp:Button ID="btnAddVideo" runat="server" Text="Add Video" Width="100px" />
                     <br />
                     <br />
+
+                    <div class="grid">
+                    <h2>Videos</h2>
+                    <asp:GridView ID="gvVideos"
+                        runat="server"
+                        AutoGenerateColumns="False"
+                        DataSourceID="SqlDataSource_Videos"
+                        ForeColor="#333333"
+                        GridLines="None"
+                        BorderColor="Black"
+                        BorderWidth="5px"
+                    >
+                        <columns>
+                            <asp:BoundField DataField="Pad" HeaderText="" SortExpression="Pad" ItemStyle-Width="5" ItemStyle-Wrap="false" ReadOnly="True" />
+                            <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" ItemStyle-Width="10" ItemStyle-Wrap="false" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" ItemStyle-Width="50%" ItemStyle-Wrap="false"  />
+                            <asp:BoundField DataField="Genre" HeaderText="Genre" SortExpression="Genre" ItemStyle-Width="5" ItemStyle-Wrap="false" />
+                            <asp:BoundField DataField="Year" HeaderText="Year" SortExpression="Year" ItemStyle-Width="60" ItemStyle-Wrap="false"  />
+                            <asp:BoundField DataField="Director" HeaderText="Director" SortExpression="Director" ItemStyle-Width="40" ItemStyle-Wrap="false" />
+                        </columns>
+                        <headerstyle cssclass="gv-headerStyle" />
+                        <rowstyle cssclass="gv-itemStyle" />
+                        <alternatingrowstyle cssclass="gv-alternateItemStyle" />
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource_Videos" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT ' ' As Pad, [Video_Id] As Id, [Video_Title] As Title, [Video_Genre] As Genre, [Year], [Director] FROM [tblVideos]"></asp:SqlDataSource>
+ 
+                        <br />
+                        <br />
+                    <br />
+                </div>
+                <!-- Grid content end  -->
+
                 </asp:Panel>
 
             </form>
